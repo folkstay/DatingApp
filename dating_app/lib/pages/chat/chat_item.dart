@@ -42,7 +42,7 @@ class PeopleItem extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: Colors.green,
                       shape: BoxShape.circle,
-                      border: Border.all(color: Colors.white, width: 2),
+                      border: Border.all(color: Colors.white, width: 1),
                     ),
                   ),
                 ),
@@ -98,7 +98,7 @@ class PeopleItem extends StatelessWidget {
                   Text(
                     person.lastMessage,
                     style: const TextStyle(
-                      fontFamily: 'Nunito',
+                      fontFamily: 'Inter',
                       fontSize: 12,
                       color: messageColor,
                     ),
@@ -114,6 +114,7 @@ class PeopleItem extends StatelessWidget {
               Text(
                 _formatTime(person.timestamp),
                 style: const TextStyle(
+                  fontFamily: 'Inter',
                   fontSize: 12,
                   color: messageColor,
                 ),
