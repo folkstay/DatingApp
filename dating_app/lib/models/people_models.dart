@@ -3,6 +3,7 @@ class PeopleModel {
   final String name;
   final String age;
   final String photoUrl;
+  final String? localImagePath;
   final bool isOnline;
   final bool isVip;
   final String lastMessage;
@@ -15,6 +16,7 @@ class PeopleModel {
     required this.name,
     required this.age,
     required this.photoUrl,
+    this.localImagePath,
     required this.isOnline,
     required this.isVip,
     required this.lastMessage,

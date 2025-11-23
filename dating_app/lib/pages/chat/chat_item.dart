@@ -11,7 +11,7 @@ class PeopleItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Row(
         children: [
           Stack(
@@ -21,14 +21,19 @@ class PeopleItem extends StatelessWidget {
                 height: 48,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: NetworkImage(person.photoUrl),
+                    image: person.localImagePath != null
+                        ? AssetImage(
+                            person.localImagePath!) // локальное изображение
+                        : NetworkImage(person.photoUrl)
+                            as ImageProvider, // сетевое изображение
                     fit: BoxFit.cover,
                   ),
                   borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(128),
-                      topRight: Radius.circular(128),
-                      bottomRight: Radius.circular(128),
-                      bottomLeft: Radius.circular(2)),
+                    topLeft: Radius.circular(128),
+                    topRight: Radius.circular(128),
+                    bottomRight: Radius.circular(128),
+                    bottomLeft: Radius.circular(2),
+                  ),
                 ),
               ),
               // Индикатор онлайн статуса
