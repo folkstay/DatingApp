@@ -6,7 +6,7 @@ class PeopleModel {
   final bool isOnline;
   final bool isVip;
   final String lastMessage;
-  final DateTime timestamp;
+  final String timestamp;
   final int unreadCount;
   final bool isTyping;
 

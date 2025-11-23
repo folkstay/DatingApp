@@ -1,5 +1,4 @@
 import 'package:dating_app/pages/chat/chat_list.dart';
-import 'package:dating_app/pages/chat/chat_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {

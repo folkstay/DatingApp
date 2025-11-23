@@ -60,15 +60,26 @@ class PeopleItem extends StatelessWidget {
                         padding: const EdgeInsets.only(right: 4),
                         child: crownImage,
                       ),
-                    Text(
-                      person.name,
-                      style: const TextStyle(
-                        fontFamily: 'Nunito',
-                        fontSize: 16,
-                        fontWeight: FontWeight.w800,
+                    SizedBox(
+                      width: 120,
+                      child: Text(
+                        person.name,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                        style: const TextStyle(
+                          fontFamily: 'Nunito',
+                          fontSize: 16,
+                          fontWeight: FontWeight.w800,
+                        ),
                       ),
                     ),
-                    const SizedBox(width: 8),
+                    const SizedBox(width: 6),
+                    Container(
+                      width: 1,
+                      height: 12,
+                      color: messageColor,
+                    ),
+                    const SizedBox(width: 6),
                     Text(
                       person.age,
                       style: const TextStyle(
@@ -112,28 +123,33 @@ class PeopleItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                _formatTime(person.timestamp),
+                person.timestamp,
                 style: const TextStyle(
                   fontFamily: 'Inter',
                   fontSize: 12,
+                  fontWeight: FontWeight.w400,
                   color: messageColor,
                 ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
               const SizedBox(height: 8),
               if (person.unreadCount > 0)
                 Container(
+                  width: 18,
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColor,
+                      const EdgeInsets.symmetric(horizontal: 6.5, vertical: 3),
+                  decoration: const BoxDecoration(
+                    color: redColor,
                     shape: BoxShape.circle,
                   ),
                   child: Text(
                     person.unreadCount.toString(),
                     style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
+                      color: primaryColor,
+                      fontSize: 10,
+                      fontWeight: FontWeight.w600,
+                      fontFamily: 'Inter',
                     ),
                   ),
                 ),
@@ -142,20 +158,5 @@ class PeopleItem extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  String _formatTime(DateTime timestamp) {
-    final now = DateTime.now();
-    final difference = now.difference(timestamp);
-
-    if (difference.inDays == 0) {
-      return '${timestamp.hour.toString().padLeft(2, '0')}:${timestamp.minute.toString().padLeft(2, '0')}';
-    } else if (difference.inDays == 1) {
-      return 'Вчера';
-    } else if (difference.inDays < 7) {
-      return '${difference.inDays}д';
-    } else {
-      return '${timestamp.day.toString().padLeft(2, '0')}.${timestamp.month.toString().padLeft(2, '0')}';
-    }
   }
 }

@@ -13,3 +13,5 @@ const Color textColor = Color(0xFF2C2C2E);
 const Color messageColor = Color(0xFF84878D);
 
 const Color onlineColor = Color(0xFF1AB832);
+
+const Color redColor = Color(0xFFF54D45);

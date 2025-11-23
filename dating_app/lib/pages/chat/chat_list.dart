@@ -7,20 +7,20 @@ import 'package:dating_app/design/images.dart';
 class ChatScreen extends StatelessWidget {
   // Список людей
   final List<PeopleModel> people = [
-    PeopleModel(
+    const PeopleModel(
       id: '1',
-      name: 'Антон',
+      name: 'Анотолий Вассерман',
       age: '25',
       photoUrl:
           'https://i.pinimg.com/736x/d5/9f/50/d59f502c9fa01ff7321c0b67a27d8f9f.jpg',
       isOnline: true,
       isVip: true,
       lastMessage: 'Привет! Как дела?',
-      timestamp: DateTime.now(),
+      timestamp: '5 мин.',
       unreadCount: 3,
       isTyping: false,
     ),
-    PeopleModel(
+    const PeopleModel(
       id: '2',
       name: 'Максим',
       age: '30',
@@ -29,11 +29,11 @@ class ChatScreen extends StatelessWidget {
       isOnline: false,
       isVip: false,
       lastMessage: 'Договорились на завтра',
-      timestamp: DateTime.now().subtract(const Duration(hours: 2)),
+      timestamp: '5 мин.',
       unreadCount: 0,
       isTyping: false,
     ),
-    PeopleModel(
+    const PeopleModel(
       id: '3',
       name: 'Вадим',
       age: '28',
@@ -42,11 +42,11 @@ class ChatScreen extends StatelessWidget {
       isOnline: true,
       isVip: true,
       lastMessage: 'Привет! Как дела?',
-      timestamp: DateTime.now().subtract(const Duration(days: 1)),
+      timestamp: '5 мин.',
       unreadCount: 1,
       isTyping: true,
     ),
-    PeopleModel(
+    const PeopleModel(
       id: '4',
       name: 'Дмитрий',
       age: '35',
@@ -55,11 +55,11 @@ class ChatScreen extends StatelessWidget {
       isOnline: false,
       isVip: false,
       lastMessage: 'Привет! Как дела?',
-      timestamp: DateTime.now().subtract(const Duration(days: 3)),
+      timestamp: '5 мин.',
       unreadCount: 0,
       isTyping: false,
     ),
-    PeopleModel(
+    const PeopleModel(
       id: '4',
       name: 'Дмитрий',
       age: '35',
@@ -68,11 +68,11 @@ class ChatScreen extends StatelessWidget {
       isOnline: false,
       isVip: false,
       lastMessage: 'Привет! Как дела?',
-      timestamp: DateTime.now().subtract(const Duration(days: 3)),
+      timestamp: '5 мин.',
       unreadCount: 0,
       isTyping: false,
     ),
-    PeopleModel(
+    const PeopleModel(
       id: '4',
       name: 'Дмитрий',
       age: '35',
@@ -81,11 +81,11 @@ class ChatScreen extends StatelessWidget {
       isOnline: false,
       isVip: false,
       lastMessage: 'Привет! Как дела?',
-      timestamp: DateTime.now().subtract(const Duration(days: 3)),
+      timestamp: '5 мин.',
       unreadCount: 0,
       isTyping: false,
     ),
-    PeopleModel(
+    const PeopleModel(
       id: '4',
       name: 'Дмитрий',
       age: '35',
@@ -94,11 +94,11 @@ class ChatScreen extends StatelessWidget {
       isOnline: false,
       isVip: false,
       lastMessage: 'Привет! Как дела?',
-      timestamp: DateTime.now().subtract(const Duration(days: 3)),
+      timestamp: '5 мин.',
       unreadCount: 0,
       isTyping: false,
     ),
-    PeopleModel(
+    const PeopleModel(
       id: '4',
       name: 'Дмитрий',
       age: '35',
@@ -107,11 +107,11 @@ class ChatScreen extends StatelessWidget {
       isOnline: false,
       isVip: false,
       lastMessage: 'Привет! Как дела?',
-      timestamp: DateTime.now().subtract(const Duration(days: 3)),
+      timestamp: '5 мин.',
       unreadCount: 0,
       isTyping: false,
     ),
-    PeopleModel(
+    const PeopleModel(
       id: '4',
       name: 'Дмитрий',
       age: '35',
@@ -120,11 +120,11 @@ class ChatScreen extends StatelessWidget {
       isOnline: false,
       isVip: false,
       lastMessage: 'Привет! Как дела?',
-      timestamp: DateTime.now().subtract(const Duration(days: 3)),
+      timestamp: '5 мин.',
       unreadCount: 0,
       isTyping: false,
     ),
-    PeopleModel(
+    const PeopleModel(
       id: '4',
       name: 'Дмитрий',
       age: '35',
@@ -133,11 +133,11 @@ class ChatScreen extends StatelessWidget {
       isOnline: false,
       isVip: false,
       lastMessage: 'Привет! Как дела?',
-      timestamp: DateTime.now().subtract(const Duration(days: 3)),
+      timestamp: '5 мин.',
       unreadCount: 0,
       isTyping: false,
     ),
-    PeopleModel(
+    const PeopleModel(
       id: '4',
       name: 'Дмитрий',
       age: '35',
@@ -146,7 +146,7 @@ class ChatScreen extends StatelessWidget {
       isOnline: false,
       isVip: false,
       lastMessage: 'Привет! Как дела?',
-      timestamp: DateTime.now().subtract(const Duration(days: 3)),
+      timestamp: '5 мин.',
       unreadCount: 0,
       isTyping: false,
     ),
@@ -155,8 +155,9 @@ class ChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: primaryColor,
       appBar: AppBar(
-        backgroundColor: surfaceColor,
+        backgroundColor: primaryColor,
         centerTitle: true,
         leading: Container(
           alignment: Alignment.center,
