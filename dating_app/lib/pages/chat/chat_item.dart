@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class PeopleItem extends StatelessWidget {
   final PeopleModel person;
 
-  const PeopleItem({Key? key, required this.person}) : super(key: key);
+  const PeopleItem({super.key, required this.person});
 
   @override
   Widget build(BuildContext context) {

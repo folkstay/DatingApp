@@ -1,6 +1,8 @@
 import 'package:dating_app/models/people_models.dart';
 import 'package:dating_app/pages/chat/chat_item.dart';
 import 'package:flutter/material.dart';
+import 'package:dating_app/design/colors.dart';
+import 'package:dating_app/design/images.dart';
 
 class ChatScreen extends StatelessWidget {
   // Список людей
@@ -153,7 +155,33 @@ class ChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Чаты')),
+      appBar: AppBar(
+        backgroundColor: surfaceColor,
+        centerTitle: true,
+        leading: Container(
+          alignment: Alignment.center,
+          child: penImage,
+        ),
+        actions: [
+          Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 23, vertical: 15),
+              child: glassImage)
+        ],
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(1.0),
+          child: Container(
+            color: secondaryColor,
+            height: 3.0,
+          ),
+        ),
+        title: const Text('Сообщения',
+            style: TextStyle(
+              color: textColor,
+              fontSize: 18,
+              fontWeight: FontWeight.w800,
+              fontFamily: 'Nunito',
+            )),
+      ),
       body: ListView.builder(
         itemCount: people.length,
         itemBuilder: (context, index) {
