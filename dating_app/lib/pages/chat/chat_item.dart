@@ -54,14 +54,16 @@ class PeopleItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
-                  children: [
+                  children: <Widget>[
                     if (person.isVip)
                       Padding(
                         padding: const EdgeInsets.only(right: 4),
                         child: crownImage,
                       ),
-                    SizedBox(
-                      width: 120,
+                    ConstrainedBox(
+                      constraints: const BoxConstraints(
+                        maxWidth: 110,
+                      ),
                       child: Text(
                         person.name,
                         overflow: TextOverflow.ellipsis,
@@ -97,24 +99,29 @@ class PeopleItem extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 if (person.isTyping)
-                  Text(
-                    'Печатает...',
+                  const Text(
+                    'Пишет...',
                     style: TextStyle(
                       fontSize: 12,
-                      color: Theme.of(context).primaryColor,
-                      fontFamily: 'Nunito',
+                      color: messageColor,
+                      fontFamily: 'Inter',
                     ),
                   )
                 else
-                  Text(
-                    person.lastMessage,
-                    style: const TextStyle(
-                      fontFamily: 'Inter',
-                      fontSize: 12,
-                      color: messageColor,
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(
+                      maxWidth: 200,
                     ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
+                    child: Text(
+                      person.lastMessage,
+                      style: const TextStyle(
+                        fontFamily: 'Inter',
+                        fontSize: 12,
+                        color: messageColor,
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
               ],
             ),
