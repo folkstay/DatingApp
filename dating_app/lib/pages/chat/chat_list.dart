@@ -189,7 +189,7 @@ class ChatScreen extends StatelessWidget {
           preferredSize: const Size.fromHeight(1.0),
           child: Container(
             color: secondaryColor,
-            height: 3.0,
+            height: 2.0,
           ),
         ),
         title: const Text('Сообщения',
