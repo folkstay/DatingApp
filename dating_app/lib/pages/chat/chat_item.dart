@@ -20,14 +20,13 @@ class PeopleItem extends StatelessWidget {
                 width: 48,
                 height: 48,
                 decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: person.localImagePath != null
-                        ? AssetImage(
-                            person.localImagePath!) // локальное изображение
-                        : NetworkImage(person.photoUrl)
-                            as ImageProvider, // сетевое изображение
-                    fit: BoxFit.cover,
-                  ),
+                  color: _hasImage() ? null : secondaryVariantColor,
+                  image: _hasImage()
+                      ? DecorationImage(
+                          image: _getImageProvider(),
+                          fit: BoxFit.cover,
+                        )
+                      : null,
                   borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(128),
                     topRight: Radius.circular(128),
@@ -35,6 +34,19 @@ class PeopleItem extends StatelessWidget {
                     bottomLeft: Radius.circular(2),
                   ),
                 ),
+                child: _hasImage()
+                    ? null
+                    : Center(
+                        child: Text(
+                          _getInitials(person.name),
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Nunito',
+                          ),
+                        ),
+                      ),
               ),
               // Индикатор онлайн статуса
               if (person.isOnline)
@@ -170,5 +182,32 @@ class PeopleItem extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  // Проверяет, есть ли изображение
+  bool _hasImage() {
+    return person.localImagePath != null && person.localImagePath!.isNotEmpty ||
+        person.photoUrl.isNotEmpty;
+  }
+
+  // Возвращает провайдер изображения
+  ImageProvider _getImageProvider() {
+    if (person.localImagePath != null && person.localImagePath!.isNotEmpty) {
+      return AssetImage(person.localImagePath!);
+    } else {
+      return NetworkImage(person.photoUrl);
+    }
+  }
+
+  // Получает инициалы из имени
+  String _getInitials(String name) {
+    if (name.isEmpty) return '?';
+
+    final parts = name.split(' ');
+    if (parts.length == 1) {
+      return parts[0].isNotEmpty ? parts[0][0].toUpperCase() : '?';
+    } else {
+      return '${parts[0][0]}${parts[1][0]}'.toUpperCase();
+    }
   }
 }

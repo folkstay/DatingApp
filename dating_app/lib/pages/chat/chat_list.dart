@@ -11,8 +11,7 @@ class ChatScreen extends StatelessWidget {
       id: '1',
       name: 'Маша',
       age: '25',
-      photoUrl:
-          'https://i.pinimg.com/736x/b1/e1/97/b1e197615b913f5d61323652ae1a59fd.jpg',
+      photoUrl: '',
       isOnline: true,
       isVip: true,
       lastMessage: 'Привет! Как дела?',
@@ -49,10 +48,9 @@ class ChatScreen extends StatelessWidget {
     ),
     const PeopleModel(
       id: '4',
-      name: 'Маша',
+      name: 'Ирина',
       age: '25',
-      photoUrl:
-          'https://i.pinimg.com/736x/b1/e1/97/b1e197615b913f5d61323652ae1a59fd.jpg',
+      photoUrl: '',
       isOnline: true,
       isVip: false,
       lastMessage: 'Пойдем гулять',
